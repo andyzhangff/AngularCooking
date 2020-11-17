@@ -1,0 +1,86 @@
+<div class="container">
+    <h1 class="mt-3">Receipe Dynamic Form</h1>
+    <form class="form-horizontal" [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <input class="form-control" placeholder="Your Receipe" type="text" name="receipe_name" formControlName="receipe_name" required>
+            <div *ngIf="receipe_name.invalid && (receipe_name.dirty || receipe_name.touched)" class="alert alert-danger">
+                <div *ngIf="receipe_name.errors.required">Username is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input name="receipe_feature" placeholder="Receipe Feature" class="form-control" type="text" formControlName="receipe_feature" required>
+            <div *ngIf="receipe_feature.invalid && (receipe_feature.dirty || receipe_feature.touched)" class="alert alert-danger">
+                <div *ngIf="receipe_feature.errors.required">Feature is required.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="receipeFileInput" formControlName="receipe_picture" (change)="uploadReceipeFile($event)" required>
+                    <label class="custom-file-label" for="receipeFileInput">Choose file</label>
+                </div>
+            </div>
+            <img class="img-fluid mt-3" [src]="receipe_preview" alt="">
+            <div *ngIf="receipe_picture.invalid && (receipe_picture.dirty || receipe_picture.touched)" class="alert alert-danger">
+                <div *ngIf="receipe_picture.errors.required">Receipe Picture is required.</div>
+            </div>
+        </div>
+
+        <!-- -------------------------------ingrediant-------------------------------------- -->
+        <div class="form-group">
+            <div *ngFor="let ingrediant of ingrediantsFormGroups; let i = index">
+                <div [formGroup]="ingrediant">
+
+                    <div class="input-group mb-3">
+                        <input type="text" placeholder="Some Ingrediant" formControlName="ingrediant" class="form-control" [ngClass]="{ 'is-invalid': submitted && ingrediant.errors }" />
+                        <div class="input-group-append">
+                            <app-ingrediant-remove [ingrediantIndex]="i" (notifyIngrediantRemove)="onNotifyIngrediantRemove($event)"></app-ingrediant-remove>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-success btn-lg btn-block" type="button" (click)="addIngrediant()">Add Ingrediant</button>
+        </div>
+        <!-- -------------------------------step-------------------------------------- -->
+        <div class="container fileUploadWrapper">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="fileupload" appDragDropFileUpload (click)="fileField.click()" (fileDropped)="uploadBatchStepFile($event)">
+                        <span class="ddinfo">Choose step pictures or drag here</span>
+                        <input type="file" name="avatars" #fileField (change)="uploadBatchStepFile($event.target.files)" hidden multiple>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" cdkDropList [cdkDropListData]="fileArr" (cdkDropListDropped)="drop($event)">
+            <div *ngFor="let step of stepsFormGroups; let i = index" cdkDrag>
+                <div [formGroup]="step">
+                    <mat-card appHighlight>
+                        <mat-card-title-group>
+                            <mat-card-title>Step {{i+1}}</mat-card-title>
+                            <img *ngIf="fileArr[i]['url']" mat-card-sm-image [src]="sanitize(fileArr[i]['url'])" alt="">
+                            <input *ngIf="!fileArr[i]['url']" matInput (change)="uploadStepFile($event.target.files,i)" formControlName="step_picture" type="file">
+                        </mat-card-title-group>
+                        <mat-card-content>
+                            <textarea formControlName="step_name" matInput mdTextareaAutosize placeholder="Leave Steps Details"></textarea>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <!-- <button class="btn btn-danger mr-2" mat-button>Remove</button> -->
+                            <mat-button-toggle value="steppic">Step Pic</mat-button-toggle>
+                            <app-step-remove [stepIndex]="i" (notifyStepRemove)="onNotifyStepRemove($event)"></app-step-remove>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-success btn-lg btn-block" type="button" (click)="addStep()">Add Step</button>
+
+        <!-- -----------------------------------buttons----------------------------------------- -->
+
+        <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="!dynamicForm.valid">Submit</button>
+
+    </form>
+</div>

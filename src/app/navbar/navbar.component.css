@@ -1,0 +1,9 @@
+.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
+
+nav {
+    z-index: 9999;
+}

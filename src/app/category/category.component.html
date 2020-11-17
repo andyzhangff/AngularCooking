@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="row row-cols-3 mt-4">
+        <div *ngFor="let genre of genres" class="col mb-2">
+            <img [src]="genre.avatar" alt="no picture" class="img-fluid rounded-lg">
+            <p class="feature h3 mt-2">{{genre.name | titlecase}}</p>
+        </div>
+
+        <div class="col-12 mt-4">
+            <div class="pagination-area d-sm-flex mt-15">
+                <nav aria-label="#">
+                    <ul class="pagination">
+                        <li *ngIf="!firstPageLoad" class="page-item">
+                            <a (click)="goPrev()" class="page-link"><i class="fa fa-angle-double-left" aria-hidden="true"></i> Prev </a>
+                        </li>
+                        <li *ngFor="let item of [].constructor(totalPages); let i = index" class="page-item">
+                            <a (click)="onPageNumberClick(i)" class="page-link">{{i+1}}</a>
+                        </li>
+                        <li *ngIf="!endOfPage" class="page-item">
+                            <a (click)="goNext()" class="page-link">Next <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <router-outlet></router-outlet>

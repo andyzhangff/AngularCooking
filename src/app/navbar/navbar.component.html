@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <i class="fas fa-hamburger" width="30" height="30" alt=""></i>
+        </a>
+    </nav>
+
+    <div class="collapse navbar-collapse navbar-center" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Ingrediant</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Add</a>
+                    <a class="dropdown-item" href="#">Explore</a>
+                    <a class="dropdown-item" href="#">Manage</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Receipe</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Own</a>
+                    <a class="dropdown-item" href="#">Mon</a>
+                    <a class="dropdown-item" href="#">Son</a>
+                    <a class="dropdown-item" href="#">Feng</a>
+                    <a class="dropdown-item" href="#">5Star</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Add Receipe</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          List
+        </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Today's Menu</a>
+                    <a class="dropdown-item" href="#">Shopping List</a>
+                </div>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0 ml-5" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+            <input class="form-control mr-sm-2" formControlName="search_content" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
