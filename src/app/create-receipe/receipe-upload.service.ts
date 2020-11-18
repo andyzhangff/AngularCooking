@@ -21,29 +21,7 @@ export class ReceipeUploadService {
   };
 
   addFiles(paramForm: any) {
-    // return this.http.post(this.storeReceipeUrl, {"name":"andy, it is coming from angualr"}, {
-    //   reportProgress: true,
-    //   observe: 'events'
-    // }).pipe(
-    //   catchError(this.errorMgmt)
-    // )
-    // console.log('fileSubmitted: ',paramForm);
     return this.http.post(this.storeReceipeUrl, paramForm);
-
-      // return this.http.post(this.storeReceipeUrl, paramForm);
-  }
-
-  errorMgmt(error: HttpErrorResponse) {
-    let errorMessage = '';
-    if (error.error instanceof ErrorEvent) {
-      // Get client-side error
-      errorMessage = error.error.message;
-    } else {
-      // Get server-side error
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
-    console.log(errorMessage);
-    return throwError(errorMessage);
   }
 
 }

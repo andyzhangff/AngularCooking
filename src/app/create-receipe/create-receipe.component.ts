@@ -160,7 +160,7 @@ export class CreateReceipeComponent implements OnInit {
       formData.append("stepPicturePath[]", this.sanitize(this.fileArr[i]['url']));
     }
     this.receipeUploadService.addFiles(formData).subscribe(
-      data=>{console.log(data)},
+      data=>{console.log(data['result'])},
       error=>{console.log(error)}
     )
   }
