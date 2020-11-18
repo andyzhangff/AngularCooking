@@ -4,12 +4,11 @@ import { HttpClient , HttpHeaders} from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-
-export class ReceipeUploadService {
-
-  storeReceipeUrl= 'http://localhost:3000/api/receipes/store-receipe';
+export class GetReceipeService {
 
   constructor(private http: HttpClient) { }
+
+  getReceipeUrl= 'http://localhost:3000/api/receipes/get-receipe';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -17,8 +16,8 @@ export class ReceipeUploadService {
     })
   };
 
-  addFiles(paramForm: any) {
-    return this.http.post(this.storeReceipeUrl, paramForm);
+  getReceipe(id:string){
+    return this.http.get(this.getReceipeUrl,id);
   }
 
 }

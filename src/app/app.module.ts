@@ -34,6 +34,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { HighlightDirective } from './create-receipe/highlight.directive';
 import {ReceipeUploadService} from './create-receipe/receipe-upload.service';
 import { StepRemoveComponent } from './create-receipe/step-remove/step-remove.component';
+import { ShowReceipeComponent } from './show-receipe/show-receipe.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { StepRemoveComponent } from './create-receipe/step-remove/step-remove.co
     DragDropFileUploadDirective,
     HighlightDirective,
     StepRemoveComponent,
+    ShowReceipeComponent,
   ],
   imports: [
     BrowserModule,
