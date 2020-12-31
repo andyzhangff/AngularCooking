@@ -71,17 +71,15 @@ export class CreateReceipeComponent implements OnInit {
       step_picture: ['']
     }));
     this.fileArr.push({ item:null, url:null });
-    console.log(this.fileArr);
   }
 
   uploadReceipeFile(event: any) {
     const file = (event.target as HTMLInputElement).files[0];
-    this.percentDone = Math.round(event.loaded / event.total * 100);
+    const url = URL.createObjectURL(file);
     this.dynamicForm.patchValue({
-      receipe_picture_source: file
+      receipe_picture_source: file,
     });
-    this.dynamicForm.get('receipe_picture_source').updateValueAndValidity()
-
+    this.dynamicForm.get('receipe_picture_source').updateValueAndValidity();
     const reader = new FileReader();
     reader.onload = () => {
       this.receipe_preview = reader.result as string;
@@ -110,7 +108,6 @@ export class CreateReceipeComponent implements OnInit {
         step_name: [''],
         step_picture: ['']
       }));
-      console.log(this.fileArr);
     })
   }
 
@@ -118,7 +115,6 @@ export class CreateReceipeComponent implements OnInit {
       const url = URL.createObjectURL(file[0]);
       this.fileArr[i]['url']=url;
       this.fileArr[i]['item']=file[0];
-      console.log(this.fileArr);
   }
 
   // Clean Url
@@ -138,10 +134,6 @@ export class CreateReceipeComponent implements OnInit {
   }
 
   onSubmit() {
-    // this.fileObj= [];
-    // this.fileArr.forEach(element => {
-    //   this.fileObj.push(element['item']);
-    // });
     this.submitted = true;
     var formData: any = new FormData();
     formData.append("receipeName", this.receipe_name.value);
@@ -164,30 +156,6 @@ export class CreateReceipeComponent implements OnInit {
       error=>{console.log(error)}
     )
   }
-
-   // Upload to server
-    // this.dragdropService.addFiles(this.form.value.avatar)
-    //   .subscribe((event: HttpEvent<any>) => {
-    //     switch (event.type) {
-    //       case HttpEventType.Sent:
-    //         console.log('Request has been made!');
-    //         break;
-    //       case HttpEventType.ResponseHeader:
-    //         console.log('Response header has been received!');
-    //         break;
-    //       case HttpEventType.UploadProgress:
-    //         this.progress = Math.round(event.loaded / event.total * 100);
-    //         console.log(`Uploaded! ${this.progress}%`);
-    //         break;
-    //       case HttpEventType.Response:
-    //         console.log('File uploaded successfully!', event.body);
-    //         setTimeout(() => {
-    //           this.fileArr = [];
-    //           this.fileObj = [];
-    //           this.msg = "File uploaded successfully!"
-    //         }, 3000);
-    //     }
-    //   })
 
 }
 
