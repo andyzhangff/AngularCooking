@@ -9,6 +9,8 @@ import { Routes, RouterModule } from '@angular/router';
 import {CategoryComponent} from './category/category.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { UsersListComponent } from './users-list/users-list.component';
+import {ShowReceipeComponent} from './show-receipe/show-receipe.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -19,7 +21,8 @@ const routes: Routes = [
   { path: 'category', component: CategoryComponent},
   { path: 'create-receipe', component: CreateReceipeComponent },
   { path: 'add-user', component: CreateUserComponent },
-  { path: 'users-list', component: UsersListComponent }
+  { path: 'users-list', component: UsersListComponent },
+  { path: 'show-receipe/:receipeId', component: ShowReceipeComponent }
 ];
 // , canActivate:[RouteguardGuard]
 @NgModule({

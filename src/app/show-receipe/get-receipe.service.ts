@@ -10,14 +10,8 @@ export class GetReceipeService {
 
   getReceipeUrl= 'http://localhost:3000/api/receipes/get-receipe';
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-    })
-  };
-
-  getReceipe(id:string){
-    return this.http.get(this.getReceipeUrl,id);
+  getReceipe(receipeId:string){
+    return this.http.get(this.getReceipeUrl + '/' + receipeId);
   }
 
 }
