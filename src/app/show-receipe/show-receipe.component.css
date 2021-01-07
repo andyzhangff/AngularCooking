@@ -1,0 +1,28 @@
+.background{
+    background: #E5E5E5;
+    width: 100%;
+}
+
+.main{
+    height: 2335px;
+width: 965px;
+left: -465px;
+top: -421px;
+border-radius: 0px;
+background: white;
+margin: auto;
+}
+
+.title{
+position: relative;
+width: 965px;
+height: 125px;
+left: 0px;
+top: 0px;
+background: #3F5A3F;
+line-height:125px;
+}
+
+.titleText{
+    vertical-align: middle;
+}

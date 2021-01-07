@@ -9,6 +9,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ShowReceipeComponent implements OnInit {
   receipeId:string;
+  ingrediants:string[];
+  steps:Array<string[]>;
+  receipeName:string;
+  receipePicPath:string;
+  receipeFeature:string;
 
   constructor(private getReceipeService: GetReceipeService, 
     private route: ActivatedRoute) { }
@@ -16,13 +21,20 @@ export class ShowReceipeComponent implements OnInit {
   ngOnInit(): void {
     this.receipeId = this.route.snapshot.paramMap.get('receipeId');
     console.log(this.receipeId);
-    this.get_receipe();
+    this.getReceipe();
   }
 
-  get_receipe(){
+  getReceipe(){
     this.getReceipeService.getReceipe(this.receipeId).subscribe(
       data =>{
-        console.log(data['ingrediant']);
+        this.ingrediants = data['ingrediant'];
+        this.steps = data['step'];
+        this.receipeName = data['name']['receipe_name'];
+        this.receipePicPath = data['name']['receipe_path'];
+        this.receipeFeature = data['name']['receipeFeature'];
+      },
+      err => {
+        console.log(err);
       }
     );
   }
