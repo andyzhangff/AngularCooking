@@ -21,8 +21,92 @@ left: 0px;
 top: 0px;
 background: #3F5A3F;
 line-height:125px;
+font-size: xx-large;
+font-weight:bold;
+color: #0EAA30;
+font-style: italic;
 }
 
-.titleText{
-    vertical-align: middle;
+.receipeInfo, .ingrediant, .steps{
+    margin: 10px;
+    background-color: #F8FAF4;
+    width: 945px;
+    height: auto;
+}
+
+.receipeTextDiv{
+    position: relative;
+    top: 40%;
+
+  }
+
+  .receipeFeatureText{
+      position: relative;
+      font-size: 2em;
+        left: 30px;
+      color:#3F5A3F;
+      line-height: 1em;
+      
+  }
+
+  .receipePicture, .stepsPicture{
+      border-radius: 10px;
+  }
+
+  .receipeName{
+      font-size: 3em;
+      padding: 30px;
+      color: #3F5A3F;
+  }
+
+  .receipeRow, .ingrediantRow{
+      padding-bottom: 30px;
+  }
+
+  .ingrediantList{
+    list-style: none;
+  }
+
+  .ingrediantItem{
+    padding-top: 2em;
+    font-size: medium;
+    color: #3F5A3F;
+   font-style: italic;
+  }
+
+  .stepsCard{
+    border-radius: 20px;
+    margin-top:20px;
+  }
+
+  .stepsText{
+    /* position: relative; */
+    font-size: 1.5em;
+    color:#3F5A3F;
+    /* line-height: 30px; */
+}
+
+.stepsDiv{
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+
+.ingrediantIconDiv{
+  margin-top: 20px;
+}
+
+.stepsIcon{
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.stepsRow{
+  padding-bottom: 40px;
+}
+
+.receipeBlock{
+  width: 550px;
+  height: 550px;
+
 }

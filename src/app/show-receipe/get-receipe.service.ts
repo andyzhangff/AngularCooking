@@ -11,7 +11,7 @@ export class GetReceipeService {
   getReceipeUrl= 'http://localhost:3000/api/receipes/get-receipe';
 
   getReceipe(receipeId:string){
-    return this.http.get(this.getReceipeUrl + '/' + receipeId);
+    return this.http.get(this.getReceipeUrl + '/' + receipeId,{responseType: 'blob'});
   }
 
 }

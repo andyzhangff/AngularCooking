@@ -1,13 +1,117 @@
 <div class="background">
     <div class="main">
-       
-                <div class="container title">
-My Receipe
-
+        <div class="container title">
+            My Receipe
+        </div>
+        <div class="container receipeInfo">
+            <p class="receipeName">{{receipeName | titlecase}}</p>
+            <div class="row receipeRow">
+                <div class="col-lg-7 receipeBlock">
+                    <img class="receipePicture" [src]="receipePicUrl" alt="receipe pic here" width="550px">
+                </div>
+                <div class="col-lg-5 receipeFeatureDiv">
+                    <div class="receipeTextDiv">
+                        <p class="receipeFeatureText">
+                            Lorem Ipsum is simply dummy text of the
+                            printing and typesetting industry. Lorem
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ingrediant container">
+            <div class="row ingrediantRow">
+                <div class="col-lg-2 ingrediantIconDiv">
+                    <img class="ingrediantIcon" src="./assets/ingrediant.svg" width="30px">
                 </div>
 
+                <div class="col-lg-5">
+                    <ul class="ingrediantList">
+                        <li class="ingrediantItem">ingrediant1</li>
+                        <li class="ingrediantItem">ingrediant1</li>
+                        <li class="ingrediantItem">ingrediant1</li>
+                        <li class="ingrediantItem">ingrediant1</li>
+                    </ul>
+                </div>
 
+                <div class="col-lg-5">
+                    <ul class="ingrediantList">
+                        <li class="ingrediantItem">ingrediant2</li>
+                        <li class="ingrediantItem">ingrediant2</li>
+                        <li class="ingrediantItem">ingrediant2</li>
+                        <li class="ingrediantItem">ingrediant2</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container steps">
+            <div class="stepsIcon">
+                <img src="./assets/steps.svg" width="30px"> 
+            </div>
+            <div class="stepsRow">
+                <mat-card class="stepsCard">
+                    <mat-card-title>Step1</mat-card-title>
+                    <mat-card-content>
+                        <div class="row">
+                            <div class="col-lg-1"></div>
+                            <div class="col-lg-6">
+                                <img class="stepsPicture" src="./assets/step1.jfif" width="400px"> 
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="stepsDiv">
+                                    <p class="stepsText">
+                                        Lorem Ipsum is simply dummy text of the
+                                        printing and typesetting industry. Lorem
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
 
-     
+                <mat-card class="stepsCard">
+                    <mat-card-title>Step2</mat-card-title>
+                    <mat-card-content>
+                        <div class="row">
+                            <div class="col-lg-1"></div>
+                            <div class="col-lg-6">
+                                <img class="stepsPicture" src="./assets/step1.jfif" width="400px"> 
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="stepsDiv">
+                                    <p class="stepsText">
+                                        Lorem Ipsum is simply dummy text of the
+                                        printing and typesetting industry. Lorem
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+
+                <mat-card class="stepsCard">
+                    <mat-card-title>Step3</mat-card-title>
+                    <mat-card-content>
+                        <div class="row">
+                            <div class="col-lg-1"></div>
+                            <div class="col-lg-6">
+                                <img class="stepsPicture" src="./assets/step1.jfif" width="400px"> 
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="stepsDiv">
+                                    <p class="stepsText">
+                                        Lorem Ipsum is simply dummy text of the
+                                        printing and typesetting industry. Lorem
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+
+            </div>
+        </div>
+
     </div>
 </div>
